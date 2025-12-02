@@ -15,52 +15,24 @@
 
   SPDX-License-Identifier: Apache-2.0
 
-===================
-OSMO Documentation
-===================
+.. raw:: html
 
-OSMO is an open-source workflow orchestration platform purpose-built for Physical AI and robotics development.
+   <link rel="stylesheet" href="_static/css/root_page.css">
 
-Ready to Begin?
-===============
+=====
+OSMO
+=====
 
-Select one of the guides below to get started with OSMO.
+.. toctree::
+   :hidden:
 
-.. only:: html
+   user_guide/index
+   deployment_guide/index
 
-  .. grid:: 1 2 2 2
-      :gutter: 3
+.. note::
+   Redirecting to the User Guide...
 
-      .. grid-item-card:: :octicon:`book` User Guide
-          :class-card: tool-card
-          :link: user_guide/index.html
+   If not redirected, navigate to:
 
-          Learn how to use OSMO, write workflows, and build Physical AI applications.
-
-          **Topics covered:**
-
-          • Getting started with OSMO
-
-          • Writing workflow specifications
-
-          • Working with data and datasets
-
-          • Interactive development
-
-      .. grid-item-card:: :octicon:`rocket` Deployment Guide
-          :class-card: tool-card
-          :link: deployment_guide/index.html
-
-          Deploy OSMO infrastructure and configure your compute backends.
-
-          **Topics covered:**
-
-          • Infrastructure requirements
-
-          • Deploying the OSMO service
-
-          • Configuring storage backends
-
-          • Bring Your Own Compute
-
-          • Advanced configuration
+   * :doc:`user_guide/index`
+   * :doc:`deployment_guide/index`
