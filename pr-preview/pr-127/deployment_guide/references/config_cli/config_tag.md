@@ -18,7 +18,7 @@ SPDX-License-Identifier: Apache-2.0 -->
 
 # osmo config tag
 
-Update tags for a config revision. Tags can be used for organizing configs by category and filtering output of `osmo config history`. Tags do notaffect the configuration itself.
+Update tags for a config revision. Tags can be used for organizing configs by category and filtering output of `osmo config history`. Tags do not affect the configuration itself.
 
 ```default
 usage: osmo config tag [-h] config_type [--set SET [SET ...]] [--delete DELETE [DELETE ...]]
