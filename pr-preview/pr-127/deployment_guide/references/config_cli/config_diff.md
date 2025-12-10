@@ -43,8 +43,12 @@ Show changes made to the workflow config since revision 15:
 osmo config diff WORKFLOW:15
 ```
 
+![image](deployment_guide/references/config_cli/images/config_diff_workflow.png)
+
 Show changes made between two revisions of the service configuration:
 
 ```default
 osmo config diff SERVICE:14 SERVICE:15
 ```
+
+![image](deployment_guide/references/config_cli/images/config_diff_service.png)
