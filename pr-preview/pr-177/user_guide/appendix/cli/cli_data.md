@@ -184,7 +184,9 @@ Ex. osmo data delete s3://bucket/
 Check the access to a backend URI
 
 ```default
-osmo data check [-h] [--access-type {READ,WRITE,DELETE}] remote_uri
+osmo data check [-h] [--access-type {READ,WRITE,DELETE}]
+                [--config-file CONFIG_FILE]
+                remote_uri
 ```
 
 #### Positional Arguments
@@ -200,3 +202,6 @@ URI where access will be checked to.
 Possible choices: READ, WRITE, DELETE
 
 Access type to check access to the backend URI.
+* **--config-file, -c**: 
+
+Path to the config file to use for the access check.

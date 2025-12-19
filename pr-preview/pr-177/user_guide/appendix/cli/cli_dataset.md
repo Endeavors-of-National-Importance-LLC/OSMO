@@ -640,7 +640,9 @@ Ex. osmo dataset migrate DS1:latest
 Check access permissions for dataset operations
 
 ```default
-osmo dataset check [-h] [--access-type {READ,WRITE,DELETE}] name
+osmo dataset check [-h] [--access-type {READ,WRITE,DELETE}]
+                   [--config-file CONFIG_FILE]
+                   name
 ```
 
 #### Positional Arguments
@@ -656,3 +658,6 @@ Dataset name. Specify bucket and tag/version with [bucket/]DS[:tag/version].
 Possible choices: READ, WRITE, DELETE
 
 Access type to check access to the dataset.
+* **--config-file, -c**: 
+
+Path to the config file to use for the access check.

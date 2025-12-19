@@ -1099,7 +1099,9 @@ Ex. osmo dataset update DS1 –remove “.*.(yaml|json)$”</p>
 <section id="cli_reference_dataset_check">
 <span id="check"></span><h3>check<a class="headerlink" href="#cli_reference_dataset_check" title="Link to this heading">#</a></h3>
 <p>Check access permissions for dataset operations</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">osmo</span> <span class="n">dataset</span> <span class="n">check</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">access</span><span class="o">-</span><span class="nb">type</span> <span class="p">{</span><span class="n">READ</span><span class="p">,</span><span class="n">WRITE</span><span class="p">,</span><span class="n">DELETE</span><span class="p">}]</span> <span class="n">name</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">osmo</span> <span class="n">dataset</span> <span class="n">check</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">access</span><span class="o">-</span><span class="nb">type</span> <span class="p">{</span><span class="n">READ</span><span class="p">,</span><span class="n">WRITE</span><span class="p">,</span><span class="n">DELETE</span><span class="p">}]</span>
+                   <span class="p">[</span><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">file</span> <span class="n">CONFIG_FILE</span><span class="p">]</span>
+                   <span class="n">name</span>
 </pre></div>
 </div>
 <section id="cli_reference_dataset_check_positional_arguments">
@@ -1116,6 +1118,9 @@ Ex. osmo dataset update DS1 –remove “.*.(yaml|json)$”</p>
 <dt id="cli_reference_dataset_check_access_type"><kbd>--access-type, -a</kbd><a class="headerlink" href="#cli_reference_dataset_check_access_type" title="Link to this argument">#</a></dt>
 <dd><p>Possible choices: READ, WRITE, DELETE</p>
 <p>Access type to check access to the dataset.</p>
+</dd>
+<dt id="cli_reference_dataset_check_config_file"><kbd>--config-file, -c</kbd><a class="headerlink" href="#cli_reference_dataset_check_config_file" title="Link to this argument">#</a></dt>
+<dd><p>Path to the config file to use for the access check.</p>
 </dd>
 </dl>
 </section>
