@@ -272,10 +272,9 @@ func watchEvents(
 		return
 	}
 
-	// Set watch error handler for rebuild on watch gaps
+	// Set watch error handler
 	eventInformer.SetWatchErrorHandler(func(r *cache.Reflector, err error) {
-		log.Printf("Event watch error, will rebuild from store: %v", err)
-		rebuildEventsFromStore(ctx, eventInformer, tracker, eventChan)
+		log.Printf("Event watch error: %v", err)
 	})
 
 	// Start the informer
@@ -289,53 +288,9 @@ func watchEvents(
 	}
 	log.Println("Event informer cache synced successfully")
 
-	// Initial rebuild from store after sync
-	rebuildEventsFromStore(ctx, eventInformer, tracker, eventChan)
-
 	// Keep the watcher running
 	<-ctx.Done()
 	log.Println("Event watcher stopped")
-}
-
-// rebuildEventsFromStore rebuilds event state from informer cache
-func rebuildEventsFromStore(
-	ctx context.Context,
-	eventInformer cache.SharedIndexInformer,
-	tracker *eventSentTracker,
-	eventChan chan<- *corev1.Event,
-) {
-	log.Println("Rebuilding event state from informer store...")
-
-	sent := 0
-	skipped := 0
-	events := eventInformer.GetStore().List()
-	for _, obj := range events {
-		event, ok := obj.(*corev1.Event)
-		if !ok {
-			continue
-		}
-
-		// Only process Pod events
-		if event.InvolvedObject.Kind != "Pod" {
-			continue
-		}
-
-		// Check if we should process this event (deduplication)
-		if !tracker.ShouldProcess(event.Type, event.Reason, event.InvolvedObject.Name) {
-			skipped++
-			continue
-		}
-
-		select {
-		case eventChan <- event:
-			sent++
-		case <-ctx.Done():
-			log.Printf("Event rebuild interrupted: sent=%d, skipped=%d", sent, skipped)
-			return
-		}
-	}
-
-	log.Printf("Event rebuild complete: sent=%d, skipped=%d", sent, skipped)
 }
 
 // createPodEventMessage creates a ListenerMessage from an Event object
